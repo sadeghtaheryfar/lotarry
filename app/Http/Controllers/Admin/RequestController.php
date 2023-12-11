@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Persons;
-use App\Http\Requests\StorePersonsRequest;
-use App\Http\Requests\UpdatePersonsRequest;
 
-class PersonsController extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $persons = Persons::get();
+        return view('admin.request.index',compact('persons'));
     }
 
     /**
@@ -27,17 +28,15 @@ class PersonsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePersonsRequest $request)
+    public function store(Request $request)
     {
-        $inputs = $request->all();
-        Persons::create($inputs);
-        return to_route('home')->with('swal-success', 'ثبت نام با موفقیت انجام شد .');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Persons $persons)
+    public function show(string $id)
     {
         //
     }
@@ -45,7 +44,7 @@ class PersonsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Persons $persons)
+    public function edit(string $id)
     {
         //
     }
@@ -53,7 +52,7 @@ class PersonsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePersonsRequest $request, Persons $persons)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -61,7 +60,7 @@ class PersonsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Persons $persons)
+    public function destroy(string $id)
     {
         //
     }

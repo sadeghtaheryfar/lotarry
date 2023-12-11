@@ -11,7 +11,7 @@ class StorePersonsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePersonsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'full_name' => 'required',
+            'id_instagram' => 'required',
+            'phone' => 'required',
+            'page' => 'required',
+            'post' => 'required',
+            'mention' => 'required',
         ];
     }
 }

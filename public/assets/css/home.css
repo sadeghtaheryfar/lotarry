@@ -14,6 +14,19 @@
 }
 
 
+.form-style .checkbox{
+    display: flex;
+    align-items: center;
+}
+
+
+.form-style .checkbox label{
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+
 .form-style input{
     margin-top: 0.5rem;
     border: 1px solid #0000ff;
@@ -44,4 +57,72 @@
     resize: vertical;
     font-family: 'kalameh2';
     font-size: 18px;
+}
+
+
+.esponsers{
+    display: flex;
+    justify-content: center;
+}
+
+
+.esponsers .item{
+    width: 100px;
+    height: 100px;
+    outline: 1px solid #0000ff;
+    border-radius: 1000px;
+    overflow: hidden;
+    padding: 0.2rem;
+    margin: 0.5rem;
+}
+
+
+.esponsers .item img{
+    height: 100%;
+    border-radius: 1000px;
+}
+
+
+.hide-mobile{
+    display: flex;
+}
+
+
+.hide-pc{
+    display: none;
+}
+
+
+@media screen and (max-width:1200px){
+    .esponsers .item{
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+@media screen and (max-width:900px){
+    .esponsers{
+        flex-direction: column;
+    }
+
+    .esponsers > div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .esponsers .item{
+        width: 120px;
+        height: 120px;
+    }
+
+
+    .hide-mobile{
+        display: none;
+    }
+
+
+    .hide-pc{
+        display: flex;
+    }
 }

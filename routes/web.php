@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\RequestController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Auth\Customer\LoginRegisterController;
+use App\Http\Controllers\PersonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,11 @@ use App\Http\Controllers\Auth\Customer\LoginRegisterController;
 */
 
 Route::get('/', [HomeController::class,"index"])->name('home');
+Route::post('/requests', [PersonsController::class,'store'])->name('person.store');
 
 Route::prefix('admin')->name('admin.')->middleware('auth','VerifyAdmin')->group(function () {
     Route::get('/', HomeAdminController::class)->name('home');
+    Route::resource('/requests',RequestController::class);
 });
 
 Route::namespace('Auth.')->group(function () {
