@@ -6,6 +6,17 @@
 
 *{
     font-family: 'kalameh2' !important;
+    box-sizing: border-box !important;
+}
+
+
+#ck-editort{
+    box-sizing: border-box !important;
+}
+
+
+.ck-editor__editable {
+    min-height: 150px;
 }
 
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\InputsFrom;
 use App\Models\Recruitments;
+use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        Cache::flush();
+        $setting = Setting::first();
+        return view('index',compact('setting'));
     }
 
     /**

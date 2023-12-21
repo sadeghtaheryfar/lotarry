@@ -30,8 +30,16 @@ class PersonsController extends Controller
     public function store(StorePersonsRequest $request)
     {
         $inputs = $request->all();
-        Persons::create($inputs);
-        return to_route('home')->with('swal-success', 'ثبت نام با موفقیت انجام شد .');
+        $PersonInstagram = Persons::where('id_instagram', $request->id_instagram)->get();
+        $PersonPhone = Persons::where('phone', $request->phone)->get();
+        if ($PersonInstagram->isEmpty($PersonInstagram) && $PersonPhone->isEmpty($PersonPhone)) {
+            $person = Persons::create($inputs);
+            return to_route('home')->with('swal-success', $person->full_name . "عزیز ثبت نام شما با موفقیت انجام شد 😍 کد قرعه کشی شما : " . $person->id);
+            exit();
+        }
+        // dd("hh");
+        return to_route('home')->with('swal-error', 'اطلاعات وارد قبلا شرکت کرده و موجود میباشد . 🙄در صورت هرگونه مشکل با آی دی haMed_008 در تلگرام در ارتباط باشید 😍 .');
+        exit();
     }
 
     /**

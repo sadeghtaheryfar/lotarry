@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\RequestController;
 use App\Http\Controllers\Admin\HomeAdminController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Auth\Customer\LoginRegisterController;
 use App\Http\Controllers\PersonsController;
 
@@ -24,6 +25,7 @@ Route::post('/requests', [PersonsController::class,'store'])->name('person.store
 Route::prefix('admin')->name('admin.')->middleware('auth','VerifyAdmin')->group(function () {
     Route::get('/', HomeAdminController::class)->name('home');
     Route::resource('/requests',RequestController::class);
+    Route::resource('/setting',SettingController::class);
 });
 
 Route::namespace('Auth.')->group(function () {

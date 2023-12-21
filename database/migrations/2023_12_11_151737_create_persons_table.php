@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('persons', function (Blueprint $table) {
             $table->id();
             $table->string('full_name');
-            $table->string('id_instagram');
-            $table->string('phone');
+            $table->string('id_instagram')->unique();
+            $table->string('phone')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

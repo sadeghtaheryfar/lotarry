@@ -14,6 +14,11 @@
 }
 
 
+.form-style label{
+    font-weight: 900 !important;
+}
+
+
 .form-style .checkbox{
     display: flex;
     align-items: center;
@@ -22,7 +27,7 @@
 
 .form-style .checkbox label{
     margin-right: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
     cursor: pointer;
 }
 
@@ -34,7 +39,7 @@
     padding: 10px;
     resize: vertical;
     font-family: 'kalameh2';
-    font-size: 18px;
+    font-size: 15px;
 }
 
 
@@ -69,7 +74,7 @@
 .esponsers .item{
     width: 100px;
     height: 100px;
-    outline: 1px solid #0000ff;
+    border: 3px solid #0000ff;
     border-radius: 1000px;
     overflow: hidden;
     padding: 0.2rem;
